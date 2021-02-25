@@ -35,7 +35,7 @@ services:
       - lakefs:testdeleteobjects.s3.local.lakefs.io
     environment:
       - CGO_ENABLED=0
-      - NESSIE_STORAGE_NAMESPACE
+      - NESSIE_STORAGE_NAMESPACE=local://
       - NESSIE_AWS_ACCESS_KEY_ID
       - NESSIE_AWS_SECRET_ACCESS_KEY
       - NESSIE_ENDPOINT_URL=http://lakefs:8000
@@ -50,5 +50,5 @@ volumes:
     driver_opts:
       o: bind
       type: none
-      device: .
+      device: ${LAKEFS_ROOT}
 
